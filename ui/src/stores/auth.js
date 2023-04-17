@@ -1,6 +1,6 @@
 //<script>
 //eslint-disable /
-const BASE = "http://127.0.0.1:8000";
+const BASE = location.origin;//"http://127.0.0.1:8000";
 import alertifyjs from "@/alertifyjs";
 import router from "@/router";
 import axios from "axios";
