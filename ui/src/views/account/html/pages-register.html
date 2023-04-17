@@ -1,0 +1,43 @@
+<div class="card">
+
+  <div class="card-header">
+    <h5 class="card-title text-center">
+      <RouterLink to="/"><i class="bx bxs-left-arrow"></i></RouterLink>Sign up</h5>
+
+  </div>
+
+  <form class="row g-2 justify-content-center card-body form" @submit.prevent="registerForm">
+
+    <div class="col-12 mb-2">
+      <div class="input-group">
+        <input type="text" placeholder="username" autocomplete="username" class="form-control" id="username" required v-model="stores.regForm.username">
+      </div>
+    </div>
+    <div class="col-12 mb-2">
+      <div class="input-group">
+        <input type="text" placeholder="Email" autocomplete="email" class="form-control" id="email" required v-model="stores.regForm.email">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="input-group">
+        <input type="password" placeholder="password" autocomplete="new-password" class="form-control" id="Password1" required v-model="stores.regForm.password1">
+        
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="input-group">
+        <input type="password" placeholder="Confirm password" autocomplete="new-password" class="form-control" id="Password2" required v-model="stores.regForm.password2">
+        
+      </div>
+    </div>
+    <div class="col-12 mb-2 mt-3">
+      <div class="input-group">
+        <button class="btn btn-primary w-100" type="submit" >Sign up</button>
+      </div>
+  </div>
+    <div class="col-12">
+      <p class="small mb-0">Don't have account? <router-link to="/account/login">Login</router-link></p>
+    </div>
+  </form>
+
+</div>
