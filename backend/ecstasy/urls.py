@@ -42,7 +42,7 @@ router = DefaultRouter()
 router.register("posts", PostsView)
 router.register("comments", CommentsView)
 router.register("categories", CategoryView)
-def index(request, *r):
+def index(request, **r):
     return render(request, "index.html", {})
 urlpatterns = [
     re_path(r"^v1/api/", include(router.urls)),
