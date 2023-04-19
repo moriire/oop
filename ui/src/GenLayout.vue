@@ -19,8 +19,9 @@ const categories = ubook.categories
       <h1 class="logo me-auto"><RouterLink to="/" style="text-decoration: none;">OOP</RouterLink></h1>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><RouterLink class="nav-link"  to="/posts/all">Home</RouterLink></li>
-          <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down"></i></a>
+          <li><RouterLink class="nav-link"  to="/posts/create">Home</RouterLink></li>
+          <li><RouterLink class="nav-link"  to="/posts/all">Posts</RouterLink></li>
+          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><RouterLink :to="`/categories/${category.id}`" v-for="category in ubook.categories" v-bind:key="category.id">{{ category.name }}</RouterLink></li>
             </ul>

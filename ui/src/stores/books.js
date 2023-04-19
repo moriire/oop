@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import axios from "axios"
 const BASE = location.origin;//"http://127.0.0.1:8000";
+//const BASE = "http://127.0.0.1:8000";
 import { useAuthStore } from "@/stores/auth"
 export const useBookStore = defineStore('counter', () => {
   const auth = useAuthStore();
@@ -65,7 +66,7 @@ export const useBookStore = defineStore('counter', () => {
       this.posts = res.data
     })
     .catch(e=>{
-      if (er.response.data.code === "token_not_valid"){
+      if (e.response.data.code === "token_not_valid"){
         auth.logout()
         }
         alert(e)    

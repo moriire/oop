@@ -5,15 +5,13 @@
   import { useAuthStore } from "@/stores/auth"
   import dayjs from 'dayjs';
   import relativeTime from 'dayjs/plugin/relativeTime';
-import { getActivePinia } from "pinia";
-  dayjs.extend(relativeTime)
+  dayjs.extend(relativeTime);
   const ubook = useBookStore();
   const auth = useAuthStore();
   let searchinput = ref("");
-  
   onMounted(() => {
     ubook.getPosts()
-  });
+  })
   function searchSub(){
     return ubook.posts.filter((post) => 
       post
@@ -21,6 +19,8 @@ import { getActivePinia } from "pinia";
   )}
 </script>
 <template>
+  
+  
   <!-- ======= Aall Books Section ======= -->
   <section id="about" class="why-us section-bg">
     <div class="container" data-aos="fade-up">
@@ -30,7 +30,7 @@ import { getActivePinia } from "pinia";
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-8 order-2 order-lg-2 ">
+        <div class="col-lg-10 order-2 order-lg-2 ">
           <div class="accordion-list" style="margin:0; padding: 0;">
                   <ul >
                     <li v-for="(post, index) in searchSub()" v-bind:key="index" >
@@ -39,10 +39,8 @@ import { getActivePinia } from "pinia";
                       </h2>
                       <a data-bs-toggle="collapse" class="collapse display-2" :data-bs-target="`#accordion-list-${index+1}`"> {{ post.title }} ? <span style="float:right;">{{ dayjs(post.uploaded_on).fromNow() }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></span></a>
                       <div :id="`accordion-list-${index+1}`" class="collapse" data-bs-parent=".accordion-list">
-                        <p >
-                          {{ post.body }}
-                          
-                        </p>
+                        <!--p v-html="post.body" class="ql-editor">  
+                        </p-->
                         <RouterLink :to="`/post/${post.id}`" style="float:right">
                           ... read more
                         </RouterLink>
@@ -52,7 +50,7 @@ import { getActivePinia } from "pinia";
                   </ul>
           </div>
         </div>
-        <div class="col-lg-4 order-1 order-lg-2 pb-2 mb-4">
+        <!--div class="col-lg-4 order-1 order-lg-2 pb-2 mb-4">
           <div class="card">
             <div class="card-header text-center"><h2>What is it?</h2></div>
             <form @submit.prevent="ubook.addPost(auth.stores.data.user.pk)" class="card-body bg-primary">
@@ -74,12 +72,11 @@ import { getActivePinia } from "pinia";
               </div>
             </form>
           </div>
-        </div>
+        </div-->
       </div>
 
     </div>
   </section><!-- End All books Section -->
-
 </template>
 <style scoped>
 div.input-group{

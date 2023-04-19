@@ -6,6 +6,7 @@ import RegisterView from '@/views/account/RegisterView.vue'
 import ProfileView from '@/views/account/ProfileView.vue'
 import HomePage from '@/views/book/HomePage.vue'
 import AllPosts from '@/views/book/AllPosts.vue'
+import CreatePost from '@/views/book/CreatePost.vue'
 import AllCategories from '@/views/book/AllCategories.vue'
 import SingleCategories from "@/views/book/SingleCategories.vue"
 import SinglePost from '@/views/book/SinglePost.vue'
@@ -95,6 +96,12 @@ const router = createRouter({
             name: 'all-post',
             component: AllPosts,
             meta: {title: "All Posts", subtitle: "What is it?"},
+          },
+          {
+            path: 'create',
+            name: 'create-post',
+            component: CreatePost,
+            meta: {title: "Create Posts", subtitle: "What is it?"},
           },
       ]
         

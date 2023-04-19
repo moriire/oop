@@ -26,8 +26,8 @@
           <div class="section-title">
             <p class="display-4">{{ ubook.post.title }}</p>
           </div>
-          <div class="col-12 mt-2 mb-4">
-            <p class="display-2 blockquote">{{ ubook.post.body }}</p>
+          <div class="col-12 mt-2 mb-4 ql-editor" v-html="ubook.post.body">
+            
           </div>
         </div>
         
