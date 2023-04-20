@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@duskmoon/vue3-typed-js": "^0.0.4",
-    "alertifyjs": "^1.13.1"
-  }
-}

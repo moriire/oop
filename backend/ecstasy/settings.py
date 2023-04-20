@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    "users",
     "category",
     "post",
     "comment",
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     'django.contrib.admin',
     'django.contrib.auth',
-    "users",
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -96,6 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+    
 }
 
 REST_FRAMEWORK = {                           

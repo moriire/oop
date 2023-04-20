@@ -12,7 +12,7 @@ def index(request, **path):
 class PostsView(ModelViewSet):
     queryset = Posts.objects.all().select_related()
     serializer_class = PostSerializer
-    #permission_classes=[permissions.IsAuthenticated,]
+    permission_classes=[permissions.IsAuthenticated,]
 
     def list(self, request):
         items = self.get_queryset()
