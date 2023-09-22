@@ -2,6 +2,6 @@
 ## _Programmers' Discuss_
 
 
-[![N|Solid](splash/dj-vue-1.PNG)](https://anonym.onrender.com/)
-- Link: [https://anonym.onrender.com/](https://anonym.onrender.com/)
+[![N|Solid](splash/dj-vue-1.PNG)](https://oop-m06b.onrender.com/)
+- Link: [https://oop-m06b.onrender.com/](https://oop-m06b.onrender.com/)
  
