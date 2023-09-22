@@ -4,8 +4,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from rest_framework.routers import DefaultRouter
 from users import views as users_views
-from category.views import CategoryView, manager
-from post.views import PostsView
+from category.views import CategoryView
 from django.shortcuts import render
 from comment.views import CommentsView, PostWithCommentsView
 
