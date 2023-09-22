@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
+    #"rest_framework_simplejwt",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'coreapi', # Coreapi for coreapi documentation                                    
     'drf_yasg', # drf_yasg fro Swagger documentatio
+    'django_vite_plugin',
 ]
 
 MIDDLEWARE = [
@@ -92,12 +94,16 @@ WSGI_APPLICATION = 'ecstasy.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+    #'default': {
+     #   'ENGINE': 'django.db.backends.mysql',
+      #  'NAME': 'oop$default',
+       # 'USER': 'oop',
+       # 'PASSWORD': 'acsolotltd',
+       # 'HOST': 'oop.mysql.pythonanywhere-services.com',
+    #}
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oop$default',
-        'USER': 'oop',
-        'PASSWORD': 'acsolotltd',
-        'HOST': 'oop.mysql.pythonanywhere-services.com',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
     
 }
@@ -111,20 +117,21 @@ REST_FRAMEWORK = {
     }
 
 REST_AUTH = {
-    #'LOGIN_SERIALIZER':  'users.models.CustomLoginSerializer',
+    'LOGIN_SERIALIZER':  'users.models.CustomLoginSerializer',
     'REGISTER_SERIALIZER': 'users.models.CustomRegisterSerializer',
     "USER_DETAILS_SERIALIZER":'users.models.UserDetailsSerializer',
     "USE_JWT": True,
-    'JWT_AUTH_RETURN_EXPIRATION': not False,
+    'JWT_AUTH_RETURN_EXPIRATION': False,
     'JWT_AUTH_HTTPONLY':False
 }
-
+JWT_AUTH_RETURN_EXPIRATION =True
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10),
     'REFRESH_TOKEN_LIFETIME': timedelta(hours=2),
-    #'TOKEN_OBTAIN_SERIALIZER': "users.models.CustomTokenObtainPairSerializer",
+    
+    'TOKEN_OBTAIN_SERIALIZER': "users.models.CustomTokenObtainPairSerializer",
     "UPDATE_LAST_LOGIN": True,
-    #"TOKEN_REFRESH_SERIALIZER": "users.models.TokenRefreshSerializer",
+    "TOKEN_REFRESH_SERIALIZER": "users.models.TokenRefreshSerializer",
 }
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
@@ -196,3 +203,5 @@ CSRF_ALLOWED_ORIGINS = [
 """
 
 SITE_ID=1
+REST_USE_JWT=True
+

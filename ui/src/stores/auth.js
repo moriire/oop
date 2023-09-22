@@ -1,7 +1,7 @@
 //<script>
 //eslint-disable /
-const BASE = location.origin;//"http://127.0.0.1:8000";
-//const BASE = "http://127.0.0.1:8000";
+//const BASE = location.origin;//"http://127.0.0.1:8000";
+const BASE = "http://127.0.0.1:8000";
 import alertifyjs from "@/alertifyjs";
 import router from "@/router";
 import axios from "axios";
@@ -41,6 +41,7 @@ export const useAuthStore = defineStore({
 	async login(username, password) {
 		try {
 			const res = await axios.post(`${BASE}/v1/api/auth/login/`, {username, password});
+			console.log(res)
 			localStorage.setItem("user", JSON.stringify(res.data));
 			localStorage.setItem("loggedin", true),
 			localStorage.setItem("refresh_token", res.data.refresh_token),

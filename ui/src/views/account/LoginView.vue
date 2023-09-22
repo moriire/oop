@@ -10,18 +10,25 @@ const stores = useAuthStore();
   const loginAction =  async () => { 
         const { username, password } = stores.loginForm; 
         const res = await stores.login(username, password)
-        if (res === "invalid-user"){
-          alertifyjs.error("Invalid username or password")
+        if (res === "success"){
+          console.log(res)
+          location.href ="/posts/all"
         }
+        else{
+          alertifyjs.error("Invalid username or password")
+          //console.log(res)
+            //location.href ="/posts/all"
+          }
+          /*
         else if(res === "success"){
           const q=route.query.redirect
           console.log(q)
-          if (q !== undefined){
+          if (q != undefined){
             location.href=q
           }else{
             location.href ="/posts/all"
           }
-        }
+        }*/
     }
   
 
