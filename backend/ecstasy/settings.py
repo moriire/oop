@@ -206,4 +206,5 @@ CSRF_ALLOWED_ORIGINS = [
 
 SITE_ID=1
 REST_USE_JWT=True
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
