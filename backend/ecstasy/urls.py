@@ -7,7 +7,7 @@ from users import views as users_views
 from category.views import CategoryView
 from django.shortcuts import render
 from comment.views import CommentsView, PostWithCommentsView
-
+from post.views import PostsView
 
 from rest_framework import permissions
 from drf_yasg import openapi
