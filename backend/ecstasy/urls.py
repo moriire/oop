@@ -48,7 +48,6 @@ def index(request, **r):
     return render(request, "index.html", {})
 urlpatterns = [
     re_path(r"^v1/api/", include(router.urls)),
-    re_path(r"^manager/", include(router.urls)),
     path('v1/api/auth/', include('dj_rest_auth.urls')),
     re_path(r'^admin/', admin.site.urls),
     path('v1/api/auth/signup/', include('dj_rest_auth.registration.urls')),
