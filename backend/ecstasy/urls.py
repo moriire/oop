@@ -4,10 +4,12 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from rest_framework.routers import DefaultRouter
 from users import views as users_views
-from category.views import CategoryView
+from category.views import CategoryView, manager
 from post.views import PostsView
 from django.shortcuts import render
 from comment.views import CommentsView, PostWithCommentsView
+
+
 from rest_framework import permissions
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
@@ -46,6 +48,7 @@ def index(request, **r):
     return render(request, "index.html", {})
 urlpatterns = [
     re_path(r"^v1/api/", include(router.urls)),
+    re_path(r"^manager/", include(router.urls)),
     path('v1/api/auth/', include('dj_rest_auth.urls')),
     re_path(r'^admin/', admin.site.urls),
     path('v1/api/auth/signup/', include('dj_rest_auth.registration.urls')),
