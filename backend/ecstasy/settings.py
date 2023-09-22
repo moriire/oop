@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cay^w^#8ep+w4pvv1r%rz19ga=&j!ons=r9(6hwzjclu17nk1g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ecstasy.urls'
@@ -179,10 +181,10 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 
-STATICFILES_DIRS = [ 'assets' ]
-#STATIC_ROOT = 'assets'
+#STATICFILES_DIRS = [ 'assets' ]
+STATIC_ROOT =  BASE_DIR /'assets'
 
-#STATICFILES_DIRS = [ BASE_DIR / "static" ]
+STATICFILES_DIRS = [ BASE_DIR / "static" ]
 MEDIA_URL = '/media/'            
 
 MEDIA_ROOT = BASE_DIR /'media'
@@ -204,4 +206,4 @@ CSRF_ALLOWED_ORIGINS = [
 
 SITE_ID=1
 REST_USE_JWT=True
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
