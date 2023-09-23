@@ -161,8 +161,8 @@ AUTH_USER_MODEL = "users.Users"
 #ACCOUNT_USER_MODEL_USERNAME_FIELD = None #"email"
 #ACCOUNT_USERNAME_REQUIRED=False
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD =  'username_email'# 'username_email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'#none
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -207,4 +207,13 @@ CSRF_ALLOWED_ORIGINS = [
 SITE_ID=1
 REST_USE_JWT=True
 
+#fsao fbmc envo edwd
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ibmabdulsalam@gmail.com'
+EMAIL_HOST_PASSWORD = 'fsaofbmcenvoedwd'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
