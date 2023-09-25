@@ -1,7 +1,8 @@
 //<script>
 //eslint-disable /
 //const BASE = location.origin;//"http://127.0.0.1:8000";
-const BASE = "http://127.0.0.1:8000";
+const BASE = import.meta.env.VITE_API_URL; //"http://127.0.0.1:8000";
+console.log(BASE);
 import alertifyjs from "@/alertifyjs";
 import router from "@/router";
 import axios from "axios";
@@ -41,7 +42,8 @@ export const useAuthStore = defineStore({
 	async login(username, password) {
 		try {
 			const res = await axios.post(`${BASE}/v1/api/auth/login/`, {username, password});
-			console.log(res)
+			console.log(res
+				)
 			localStorage.setItem("user", JSON.stringify(res.data));
 			localStorage.setItem("loggedin", true),
 			localStorage.setItem("refresh_token", res.data.refresh_token),
@@ -51,6 +53,7 @@ export const useAuthStore = defineStore({
 			return "success"
 			//console.log(res.status)
 		} catch(errors) {
+			console.log(errors)
 		return "invalid-user"
 				}
 	},
@@ -74,6 +77,8 @@ export const useAuthStore = defineStore({
 	  async registerForm() {  
 		const res = await this.register(this.form)
 		console.log(res)
+		return res
+		
 		if (res.status==400){
 		  const contents = Object.keys(res.data);
 		  console.log(contents)
@@ -142,9 +147,11 @@ export const useAuthStore = defineStore({
 	async register(kw){
 		try {
 			const res = await axios.post(`${BASE}/v1/api/auth/signup/`, kw )
+			//console.log(res.data)
 			return res.data;
 		} catch(errors){
-			return errors.response
+			console.log(errors)
+			//return errors.response
 		}
 	},
 

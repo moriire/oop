@@ -15,6 +15,7 @@ const stores = useAuthStore();
           location.href ="/posts/all"
         }
         else{
+          console.log(res)
           alertifyjs.error("Invalid username or password")
           //console.log(res)
             //location.href ="/posts/all"
